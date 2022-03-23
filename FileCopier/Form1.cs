@@ -26,15 +26,38 @@ namespace VirtualKeyPresser
                 isHidden = true;
                 this.Enabled = false;
                 this.WindowState = FormWindowState.Minimized;
-            }  
+                startCopyOperation();
+            }
         }
+
+        private void startCopyOperation()
+        {
+            WRITELOG("COPY OPERATION STARTED",null);
+            string destinationFolder = tb_DestinationFolder.Text + @"\";
+            string sourcefolder = tb_SourceFolder.Text;
+            string sourcefile = "";
+            string sourcefilename = "";
+            //MessageBox.Show(tb_SourceFolder.Text);
+            foreach (var item in lb_SourceFolder.Items)
+            {
+                sourcefilename = item.ToString();
+                sourcefile = sourcefolder + @"\" + item.ToString();
+                //MessageBox.Show(sourcefile);
+                WRITELOG("Current File Copy Starts-- Source:" + sourcefile + " - Destination:" + (destinationFolder + sourcefilename), null);
+                try { File.Copy(sourcefile, destinationFolder + sourcefilename, false); } catch (Exception ex) { WRITELOG("startCopyOperation", ex); }
+                WRITELOG("Current File Copy Ends-- Source:" + sourcefile + " - Destination:" + (destinationFolder + sourcefilename), null); 
+                if (cb_GetOnlyLatestFile.Checked == true) break;
+            }
+            WRITELOG("COPY OPERATION ENDED", null);
+            if (isHidden) System.Windows.Forms.Application.Exit();
+        }
+
         private void InitializeSettings()
         {
             try
             {
                 StreamReader reader = new StreamReader(setsfilename);
                 cb_GetOnlyLatestFile.Checked = reader.ReadLine() == "GetOnlyLatestFileTrue" ? true : false;
-                cb_SkipCopyifExists.Checked = reader.ReadLine() == "SkipCopyifExistsTrue" ? true : false;
                 tb_SourceFolder.Text = reader.ReadLine();
                 tb_DestinationFolder.Text = reader.ReadLine();
                 reader.Close();
@@ -46,7 +69,7 @@ namespace VirtualKeyPresser
         }
         private void SaveSettings()
         {
-            string[] lines = { (cb_GetOnlyLatestFile.Checked == true ? "GetOnlyLatestFileTrue" : "GetOnlyLatestFileFalse"), (cb_SkipCopyifExists.Checked == true ? "SkipCopyifExistsTrue" : "SkipCopyifExistsTrueFalse"), tb_SourceFolder.Text, tb_DestinationFolder.Text };
+            string[] lines = { (cb_GetOnlyLatestFile.Checked == true ? "GetOnlyLatestFileTrue" : "GetOnlyLatestFileFalse"), tb_SourceFolder.Text, tb_DestinationFolder.Text };
             using (StreamWriter outputFile = new StreamWriter(setsfilename))
             {
                 foreach (string line in lines)
@@ -119,6 +142,11 @@ namespace VirtualKeyPresser
             if (string.IsNullOrEmpty(tb_SourceFolder.Text) || string.IsNullOrEmpty(tb_DestinationFolder.Text))
                 MessageBox.Show("Settings Not Saved.\nSource or Destination Folder Path Error...", "Error!", icon: MessageBoxIcon.Error, buttons: MessageBoxButtons.OK);
             else SaveSettings();
+        }
+
+        private void b_CopyTest_Click(object sender, EventArgs e)
+        {
+            startCopyOperation();
         }
     }
 }

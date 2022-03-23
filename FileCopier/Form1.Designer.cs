@@ -35,13 +35,13 @@ namespace VirtualKeyPresser
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cb_GetOnlyLatestFile = new System.Windows.Forms.CheckBox();
-            this.cb_SkipCopyifExists = new System.Windows.Forms.CheckBox();
             this.b_SourceFolder = new System.Windows.Forms.Button();
             this.b_DestinationFolder = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lb_SourceFolder = new System.Windows.Forms.ListBox();
             this.lb_DestinationFolder = new System.Windows.Forms.ListBox();
             this.b_Save = new System.Windows.Forms.Button();
+            this.b_CopyTest = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,16 +89,6 @@ namespace VirtualKeyPresser
             this.cb_GetOnlyLatestFile.Text = "Get Only Latest File";
             this.cb_GetOnlyLatestFile.UseVisualStyleBackColor = true;
             // 
-            // cb_SkipCopyifExists
-            // 
-            this.cb_SkipCopyifExists.AutoSize = true;
-            this.cb_SkipCopyifExists.Location = new System.Drawing.Point(664, 19);
-            this.cb_SkipCopyifExists.Name = "cb_SkipCopyifExists";
-            this.cb_SkipCopyifExists.Size = new System.Drawing.Size(112, 17);
-            this.cb_SkipCopyifExists.TabIndex = 5;
-            this.cb_SkipCopyifExists.Text = "Skip Copy if Exists";
-            this.cb_SkipCopyifExists.UseVisualStyleBackColor = true;
-            // 
             // b_SourceFolder
             // 
             this.b_SourceFolder.Location = new System.Drawing.Point(363, 76);
@@ -122,7 +112,6 @@ namespace VirtualKeyPresser
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cb_GetOnlyLatestFile);
-            this.groupBox1.Controls.Add(this.cb_SkipCopyifExists);
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(782, 46);
@@ -157,11 +146,22 @@ namespace VirtualKeyPresser
             this.b_Save.UseVisualStyleBackColor = true;
             this.b_Save.Click += new System.EventHandler(this.b_Save_Click);
             // 
+            // b_CopyTest
+            // 
+            this.b_CopyTest.Location = new System.Drawing.Point(383, 259);
+            this.b_CopyTest.Name = "b_CopyTest";
+            this.b_CopyTest.Size = new System.Drawing.Size(43, 71);
+            this.b_CopyTest.TabIndex = 12;
+            this.b_CopyTest.Text = "CopyTest";
+            this.b_CopyTest.UseVisualStyleBackColor = true;
+            this.b_CopyTest.Click += new System.EventHandler(this.b_CopyTest_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 471);
+            this.Controls.Add(this.b_CopyTest);
             this.Controls.Add(this.b_Save);
             this.Controls.Add(this.lb_DestinationFolder);
             this.Controls.Add(this.lb_SourceFolder);
@@ -190,13 +190,13 @@ namespace VirtualKeyPresser
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cb_GetOnlyLatestFile;
-        private System.Windows.Forms.CheckBox cb_SkipCopyifExists;
         private System.Windows.Forms.Button b_SourceFolder;
         private System.Windows.Forms.Button b_DestinationFolder;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox lb_SourceFolder;
         private System.Windows.Forms.ListBox lb_DestinationFolder;
         private System.Windows.Forms.Button b_Save;
+        private System.Windows.Forms.Button b_CopyTest;
     }
 }
 
