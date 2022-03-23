@@ -16,10 +16,17 @@ namespace VirtualKeyPresser
     public partial class MainForm : Form
     {
         string setsfilename = "sets.txt";
-        public MainForm()
+        bool isHidden = false;
+        public MainForm(string[] args)
         {
             InitializeComponent();
             InitializeSettings();
+            foreach (var item in args)
+            {
+                isHidden = true;
+                this.Enabled = false;
+                this.WindowState = FormWindowState.Minimized;
+            }  
         }
         private void InitializeSettings()
         {
@@ -111,7 +118,7 @@ namespace VirtualKeyPresser
         {
             if (string.IsNullOrEmpty(tb_SourceFolder.Text) || string.IsNullOrEmpty(tb_DestinationFolder.Text))
                 MessageBox.Show("Settings Not Saved.\nSource or Destination Folder Path Error...", "Error!", icon: MessageBoxIcon.Error, buttons: MessageBoxButtons.OK);
-            else  SaveSettings();
+            else SaveSettings();
         }
     }
 }
