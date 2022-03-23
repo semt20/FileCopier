@@ -1,0 +1,10 @@
+D:\PROJELER\VS\FileCopier\FileCopier\bin\Debug\VirtualKeyPresser.exe.config
+D:\PROJELER\VS\FileCopier\FileCopier\bin\Debug\VirtualKeyPresser.exe
+D:\PROJELER\VS\FileCopier\FileCopier\bin\Debug\VirtualKeyPresser.pdb
+D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\FileCopier.csproj.AssemblyReference.cache
+D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\VirtualKeyPresser.MainForm.resources
+D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\VirtualKeyPresser.Properties.Resources.resources
+D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\FileCopier.csproj.GenerateResource.cache
+D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\FileCopier.csproj.CoreCompileInputs.cache
+D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\VirtualKeyPresser.exe
+D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\VirtualKeyPresser.pdb

@@ -1,0 +1,3 @@
+GetOnlyLatestFileTrue
+C:\Users\BMSSEM\Desktop\kasper\testler\source
+C:\Users\BMSSEM\Desktop\kasper\testler\dest
