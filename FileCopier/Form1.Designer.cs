@@ -40,6 +40,7 @@ namespace VirtualKeyPresser
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lb_SourceFolder = new System.Windows.Forms.ListBox();
             this.lb_DestinationFolder = new System.Windows.Forms.ListBox();
+            this.b_Save = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,11 +145,23 @@ namespace VirtualKeyPresser
             this.lb_DestinationFolder.Size = new System.Drawing.Size(383, 329);
             this.lb_DestinationFolder.TabIndex = 10;
             // 
+            // b_Save
+            // 
+            this.b_Save.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.b_Save.Location = new System.Drawing.Point(0, 439);
+            this.b_Save.Name = "b_Save";
+            this.b_Save.Size = new System.Drawing.Size(806, 32);
+            this.b_Save.TabIndex = 11;
+            this.b_Save.Text = "Save Settings";
+            this.b_Save.UseVisualStyleBackColor = true;
+            this.b_Save.Click += new System.EventHandler(this.b_Save_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 440);
+            this.ClientSize = new System.Drawing.Size(806, 471);
+            this.Controls.Add(this.b_Save);
             this.Controls.Add(this.lb_DestinationFolder);
             this.Controls.Add(this.lb_SourceFolder);
             this.Controls.Add(this.groupBox1);
@@ -181,6 +194,7 @@ namespace VirtualKeyPresser
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox lb_SourceFolder;
         private System.Windows.Forms.ListBox lb_DestinationFolder;
+        private System.Windows.Forms.Button b_Save;
     }
 }
 
