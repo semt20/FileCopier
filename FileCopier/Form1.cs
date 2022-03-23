@@ -67,6 +67,7 @@ namespace VirtualKeyPresser
                 WRITELOG("InitializeSettings", e);
             }
         }
+        
         private void SaveSettings()
         {
             string[] lines = { (cb_GetOnlyLatestFile.Checked == true ? "GetOnlyLatestFileTrue" : "GetOnlyLatestFileFalse"), tb_SourceFolder.Text, tb_DestinationFolder.Text };
@@ -76,6 +77,7 @@ namespace VirtualKeyPresser
                     outputFile.WriteLine(line);
             }
         }
+
         void chooseFolder(string FType)
         {
             FolderBrowserDialog folderDlg = new FolderBrowserDialog();
@@ -89,6 +91,7 @@ namespace VirtualKeyPresser
                 Environment.SpecialFolder root = folderDlg.RootFolder;
             }
         }
+
         private void b_SourceFolder_Click(object sender, EventArgs e)
         {
             chooseFolder("SourceFolder");
@@ -98,6 +101,7 @@ namespace VirtualKeyPresser
         {
             chooseFolder("DestinationFolder");
         }
+
         void ListFolder(string FType)
         {
             string directorypath = FType == "SourceFolder" ? tb_SourceFolder.Text : tb_DestinationFolder.Text;
@@ -109,6 +113,7 @@ namespace VirtualKeyPresser
                 if (FType == "SourceFolder") lb_SourceFolder.Items.Add(item); else lb_DestinationFolder.Items.Add(item);
             }
         }
+
         private void tb_SourceFolder_TextChanged(object sender, EventArgs e)
         {
             try { ListFolder("SourceFolder"); } catch (Exception eX) { lb_SourceFolder.Items.Clear(); }
@@ -135,7 +140,7 @@ namespace VirtualKeyPresser
                     Environment.NewLine + (E != null ? " ----- ERROR : ----- " + E.ToString() : ""));
             }
             catch { }
-        }
+        } 
 
         private void b_Save_Click(object sender, EventArgs e)
         {
