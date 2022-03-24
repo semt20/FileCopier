@@ -1,5 +1,5 @@
 ﻿
-namespace VirtualKeyPresser
+namespace FileCopier
 {
     partial class MainForm
     {

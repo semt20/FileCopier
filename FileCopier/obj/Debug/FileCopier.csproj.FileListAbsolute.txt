@@ -1,5 +1,4 @@
 D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\FileCopier.csproj.AssemblyReference.cache
-D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\VirtualKeyPresser.MainForm.resources
 D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\FileCopier.csproj.GenerateResource.cache
 D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\FileCopier.csproj.CoreCompileInputs.cache
 D:\PROJELER\VS\FileCopier\FileCopier\bin\Debug\FileCopier.exe.config
@@ -8,3 +7,4 @@ D:\PROJELER\VS\FileCopier\FileCopier\bin\Debug\FileCopier.pdb
 D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\FileCopier.Properties.Resources.resources
 D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\FileCopier.exe
 D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\FileCopier.pdb
+D:\PROJELER\VS\FileCopier\FileCopier\obj\Debug\FileCopier.MainForm.resources
