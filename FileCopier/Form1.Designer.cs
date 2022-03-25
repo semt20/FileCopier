@@ -29,6 +29,7 @@ namespace FileCopier
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tb_SourceFolder = new System.Windows.Forms.TextBox();
             this.tb_DestinationFolder = new System.Windows.Forms.TextBox();
@@ -42,6 +43,7 @@ namespace FileCopier
             this.lb_DestinationFolder = new System.Windows.Forms.ListBox();
             this.b_Save = new System.Windows.Forms.Button();
             this.b_CopyTest = new System.Windows.Forms.Button();
+            this.t_OperationController = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -156,6 +158,11 @@ namespace FileCopier
             this.b_CopyTest.UseVisualStyleBackColor = true;
             this.b_CopyTest.Click += new System.EventHandler(this.b_CopyTest_Click);
             // 
+            // t_OperationController
+            // 
+            this.t_OperationController.Interval = 60000;
+            this.t_OperationController.Tick += new System.EventHandler(this.t_OperationController_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,6 +204,7 @@ namespace FileCopier
         private System.Windows.Forms.ListBox lb_DestinationFolder;
         private System.Windows.Forms.Button b_Save;
         private System.Windows.Forms.Button b_CopyTest;
+        private System.Windows.Forms.Timer t_OperationController;
     }
 }
 

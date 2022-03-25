@@ -17,6 +17,7 @@ namespace FileCopier
     {
         string setsfilename = "sets.txt";
         bool isHidden = false;
+        bool isHiddenAndOperationFinished = false;
         public MainForm(string[] args)
         {
             InitializeComponent();
@@ -26,10 +27,16 @@ namespace FileCopier
                 isHidden = true;
                 this.Enabled = false;
                 this.WindowState = FormWindowState.Minimized;
+                t_OperationController.Enabled = true;
                 startCopyOperation();
             }
         }
-
+        void copyWithCmd(string CmdCommand)
+        {
+            WRITELOG("Trying Copy With CMD Starts-- CMD= " + CmdCommand, null);
+            Process.Start("CMD.exe", CmdCommand);
+            WRITELOG("Trying Copy With CMD Ends--", null);
+        }
         private void startCopyOperation()
         {
             WRITELOG("COPY OPERATION STARTED", null);
@@ -45,12 +52,12 @@ namespace FileCopier
                 //MessageBox.Show(sourcefile);
                 WRITELOG("Current File Copy Starts-- Source:" + sourcefile + " - Destination:" + (destinationFolder + sourcefilename), null);
                 try { if (tb_DestinationFolder.Text.StartsWith("\\")) Process.Start("explorer.exe", tb_DestinationFolder.Text); /*is network path*/  } catch (Exception ex) { WRITELOG("Open Dest Network Folder", ex); }
-                try { File.Copy(sourcefile, destinationFolder + sourcefilename, false); } catch (Exception ex) { WRITELOG("startCopyOperation", ex); }
+                try { File.Copy(sourcefile, destinationFolder + sourcefilename, false); } catch (Exception ex) { WRITELOG("startCopyOperation", ex); copyWithCmd("xcopy /D  \"" + sourcefile + "\" \"" + destinationFolder + "\""); }
                 WRITELOG("Current File Copy Ends-- Source:" + sourcefile + " - Destination:" + (destinationFolder + sourcefilename), null);
                 if (cb_GetOnlyLatestFile.Checked == true) break;
             }
+            if (isHidden) isHiddenAndOperationFinished = true;
             WRITELOG("COPY OPERATION ENDED", null);
-            if (isHidden) System.Windows.Forms.Application.Exit();
         }
 
         private void InitializeSettings()
@@ -153,6 +160,17 @@ namespace FileCopier
         private void b_CopyTest_Click(object sender, EventArgs e)
         {
             startCopyOperation();
+        }
+
+        private void t_OperationController_Tick(object sender, EventArgs e)
+        {
+            if (isHiddenAndOperationFinished == true)
+            {
+                WRITELOG("CLOSING APPLICATION", null);
+                try { Environment.Exit(0); } catch { }
+                try { Close(); } catch { }
+                try { Application.Exit(); } catch { }
+            }
         }
     }
 }
