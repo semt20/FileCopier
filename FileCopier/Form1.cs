@@ -52,7 +52,7 @@ namespace FileCopier
                 //MessageBox.Show(sourcefile);
                 WRITELOG("Current File Copy Starts-- Source:" + sourcefile + " - Destination:" + (destinationFolder + sourcefilename), null);
                 try { if (tb_DestinationFolder.Text.StartsWith("\\")) Process.Start("explorer.exe", tb_DestinationFolder.Text); /*is network path*/  } catch (Exception ex) { WRITELOG("Open Dest Network Folder", ex); }
-                try { File.Copy(sourcefile, destinationFolder + sourcefilename, false); } catch (Exception ex) { WRITELOG("startCopyOperation", ex); copyWithCmd("xcopy /D  \"" + sourcefile + "\" \"" + destinationFolder + "\""); }
+                try { File.Copy(sourcefile, destinationFolder + sourcefilename, false); } catch (Exception ex) { WRITELOG("startCopyOperation", ex); copyWithCmd("xcopy /K /D /H /Y  \"" + sourcefile + "\" \"" + destinationFolder + "\""); }
                 WRITELOG("Current File Copy Ends-- Source:" + sourcefile + " - Destination:" + (destinationFolder + sourcefilename), null);
                 if (cb_GetOnlyLatestFile.Checked == true) break;
             }
