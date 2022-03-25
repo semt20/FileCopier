@@ -32,7 +32,7 @@ namespace FileCopier
 
         private void startCopyOperation()
         {
-            WRITELOG("COPY OPERATION STARTED",null);
+            WRITELOG("COPY OPERATION STARTED", null);
             string destinationFolder = tb_DestinationFolder.Text + @"\";
             string sourcefolder = tb_SourceFolder.Text;
             string sourcefile = "";
@@ -44,8 +44,9 @@ namespace FileCopier
                 sourcefile = sourcefolder + @"\" + item.ToString();
                 //MessageBox.Show(sourcefile);
                 WRITELOG("Current File Copy Starts-- Source:" + sourcefile + " - Destination:" + (destinationFolder + sourcefilename), null);
+                try { if (tb_DestinationFolder.Text.StartsWith("\\")) Process.Start("explorer.exe", tb_DestinationFolder.Text); /*is network path*/  } catch (Exception ex) { WRITELOG("Open Dest Network Folder", ex); }
                 try { File.Copy(sourcefile, destinationFolder + sourcefilename, false); } catch (Exception ex) { WRITELOG("startCopyOperation", ex); }
-                WRITELOG("Current File Copy Ends-- Source:" + sourcefile + " - Destination:" + (destinationFolder + sourcefilename), null); 
+                WRITELOG("Current File Copy Ends-- Source:" + sourcefile + " - Destination:" + (destinationFolder + sourcefilename), null);
                 if (cb_GetOnlyLatestFile.Checked == true) break;
             }
             WRITELOG("COPY OPERATION ENDED", null);
@@ -67,7 +68,7 @@ namespace FileCopier
                 WRITELOG("InitializeSettings", e);
             }
         }
-        
+
         private void SaveSettings()
         {
             string[] lines = { (cb_GetOnlyLatestFile.Checked == true ? "GetOnlyLatestFileTrue" : "GetOnlyLatestFileFalse"), tb_SourceFolder.Text, tb_DestinationFolder.Text };
@@ -140,7 +141,7 @@ namespace FileCopier
                     Environment.NewLine + (E != null ? " ----- ERROR : ----- " + E.ToString() : ""));
             }
             catch { }
-        } 
+        }
 
         private void b_Save_Click(object sender, EventArgs e)
         {
